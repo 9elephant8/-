@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#pragma warning(disable:4996)
+
+void main() {
+	int arr[10] = { 8,3,2,7,1,9,4,10,6,5 };
+	int i, j, min,temp;
+
+	for (i = 0; i < 9; i++) {
+		min = i;
+		for (j = i; j < 10; j++) {
+			if (arr[min] > arr[j]) {
+				min = j;
+			}
+		}
+		temp = arr[min];
+		arr[min] = arr[i];
+		arr[i] = temp;
+	}
+	for (i = 0; i < 10; i++) {
+		printf(" %d", arr[i]);
+	}
+
+}//선택 정렬 - 가장 작은 값을 맨 앞으로 가져온다
+//시간 복잡도 O(n*n) - 매우 비효율적
